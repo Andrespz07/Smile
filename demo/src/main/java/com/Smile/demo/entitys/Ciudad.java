@@ -1,5 +1,7 @@
 package com.Smile.demo.entitys;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -30,4 +32,15 @@ public class Ciudad {
 
     public Ciudad() {
     }
+ 
+    public List<Perfil> getPerfiles() {
+        return perfiles;
+    }
+    
+    public void setPerfiles(List<Perfil> perfiles) {
+        this.perfiles = perfiles;
+    }
+    
+    @OneToMany(mappedBy = "ciudad", cascade=CascadeType.ALL)
+        private List<Perfil> perfiles;
 }

@@ -19,4 +19,7 @@ public class Perfil {
     @Column(length=50, nullable = false)
     private Integer telefono;    
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "ciudad_id", nullable = false)
+    Ciudad ciudad;
 }
