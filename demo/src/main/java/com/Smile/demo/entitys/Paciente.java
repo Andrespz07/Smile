@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pacientes")
 public class Paciente {
-
     @Id
     private String dni;
 

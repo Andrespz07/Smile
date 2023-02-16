@@ -23,7 +23,9 @@ public class Perfil {
     @JoinColumn(name = "ciudad_id", nullable = false)
     Ciudad ciudad;
 
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paciente_id", referencedColumnName = "dni")
     private Paciente paciente;
+
 }
