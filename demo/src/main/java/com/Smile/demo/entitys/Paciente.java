@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "pacientes")
 public class Paciente {
-
     @Id
     private String dni;
 
