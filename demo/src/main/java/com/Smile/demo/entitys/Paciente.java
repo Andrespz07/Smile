@@ -1,6 +1,12 @@
 package com.Smile.demo.entitys;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "pacientes")
@@ -29,14 +35,17 @@ public class Paciente {
 
     public Paciente() {
     }
-    @OneToOne(mappedBy = "pacientes", cascade=CascadeType.ALL)
-    private Perfil perfil;
+   
+    
+    @ManyToMany 
+    private List <Tratamiento> tratamientos;
 
-    public Perfil getPerfil() {
-        return perfil;
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
     }
 
-    public void setPerfil(Perfil perfil) {
-        this.perfil = perfil;
+    public void setTratamientos(List<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
     }
+
 }
