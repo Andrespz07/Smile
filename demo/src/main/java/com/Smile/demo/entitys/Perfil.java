@@ -22,4 +22,5 @@ public class Perfil {
     @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "ciudad_id", nullable = false)
     Ciudad ciudad;
+
 }

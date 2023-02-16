@@ -29,4 +29,14 @@ public class Paciente {
 
     public Paciente() {
     }
+    @OneToOne(mappedBy = "pacientes", cascade=CascadeType.ALL)
+    private Perfil perfil;
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
 }
