@@ -1,7 +1,4 @@
 package com.Smile.demo.entitys;
-
-import java.util.List;
-
 import javax.persistence.*;
 
 
@@ -15,5 +12,4 @@ public class Tratamiento {
 
     @Column(length=50, nullable = false)
     private String tratamiento;
-
 }

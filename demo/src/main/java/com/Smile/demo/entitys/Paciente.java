@@ -36,7 +36,6 @@ public class Paciente {
     public Paciente() {
     }
    
-    
     @ManyToMany 
     private List <Tratamiento> tratamientos;
 
