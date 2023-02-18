@@ -6,4 +6,5 @@ import com.Smile.demo.entitys.Tratamiento;
 
 public interface TratamientoRepository extends JpaRepository<Tratamiento,Long> {
     
+    
 }
