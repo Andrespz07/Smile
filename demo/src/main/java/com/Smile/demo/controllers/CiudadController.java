@@ -18,13 +18,15 @@ import com.Smile.demo.entitys.Ciudad;
 // import com.Smile.demo.services.CiudadService;
 import com.Smile.demo.services.CiudadService;
 
-@CrossOrigin(origins="*", allowedHeaders = "*")
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("api/ciudad")
 public class CiudadController {
     @Autowired
     private CiudadService ciudadService;
     
+
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
         Optional<Ciudad> oCiudad = ciudadService.findById(id);
@@ -34,13 +36,13 @@ public class CiudadController {
         return ResponseEntity.ok(oCiudad.get());
     }
 
-    @PostMapping(value="", consumes = "application/json")
+    @PostMapping(value = "", consumes = "application/json")
     public ResponseEntity<?> create(@RequestBody Ciudad ciudad) {
         return ResponseEntity.status(201).body(ciudadService.save(ciudad));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Ciudad ciudadDetails, @PathVariable Long id){
+    public ResponseEntity<?> update(@RequestBody Ciudad ciudadDetails, @PathVariable Long id) {
         Optional<Ciudad> ciudad = ciudadService.findById(id);
         if (!ciudad.isPresent()) {
             return ResponseEntity.notFound().build();
@@ -49,7 +51,6 @@ public class CiudadController {
 
         return ResponseEntity.status(201).body(ciudadService.save(ciudad.get()));
     }
-
 
     @DeleteMapping
     public ResponseEntity<?> delete(@PathVariable Long id) {

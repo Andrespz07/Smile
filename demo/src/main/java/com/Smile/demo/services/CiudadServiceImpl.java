@@ -1,4 +1,5 @@
 package com.Smile.demo.services;
+
 import java.util.*;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,9 +7,8 @@ import org.springframework.stereotype.Service;
 import com.Smile.demo.entitys.Ciudad;
 import com.Smile.demo.repository.CiudadRepository;
 
-
 @Service
-public class CiudadServiceImpl implements CiudadService{
+public class CiudadServiceImpl implements CiudadService {
 
     // IMPORTANTE
     @Autowired
