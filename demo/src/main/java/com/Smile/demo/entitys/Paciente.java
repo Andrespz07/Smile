@@ -1,12 +1,10 @@
 package com.Smile.demo.entitys;
 
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "pacientes")
@@ -36,15 +34,11 @@ public class Paciente {
     public Paciente() {
     }
    
-    @ManyToMany 
-    private List <Tratamiento> tratamientos;
-
-    public List<Tratamiento> getTratamientos() {
-        return tratamientos;
-    }
-
-    public void setTratamientos(List<Tratamiento> tratamientos) {
-        this.tratamientos = tratamientos;
-    }
+    @ManyToMany
+    @JoinTable(
+    name = "pacientes_tratamientos", 
+    joinColumns = @JoinColumn(name = "paciente_id"), 
+    inverseJoinColumns = @JoinColumn(name = "tratamiento_id"))
+    Set<Tratamiento> tratamientos;
 
 }

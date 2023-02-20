@@ -18,13 +18,14 @@ public class Perfil {
 
     @Column(length = 50, nullable = false)
     private Integer telefono;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ciudad_id", nullable = false)
-    Ciudad ciudad;
-
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "paciente_id", referencedColumnName = "dni")
     private Paciente paciente;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ciudad_id", nullable = false)
+    private Ciudad ciudad;
+
 
 }

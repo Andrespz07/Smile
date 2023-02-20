@@ -9,6 +9,8 @@ public interface PacienteService {
 
     public Optional<Paciente> findById(Long id);
 
+    public Optional<Paciente> findByDni(String dni);
+
     public Paciente save(Paciente ciudad);
 
     public void deleteById(Long id);
