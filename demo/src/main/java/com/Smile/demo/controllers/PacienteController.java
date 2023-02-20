@@ -26,6 +26,15 @@ public class PacienteController {
         return ResponseEntity.ok(oPaciente.get());
     }
 
+    @GetMapping("/dni/{dni}")
+    public ResponseEntity<?> get(@PathVariable String dni) {
+        Optional<Paciente> oPaciente = pacienteService.findByDni(dni);
+        if (oPaciente.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(oPaciente.get());
+    }
+
     @PostMapping(value = "", consumes = "application/json")
     public ResponseEntity<?> create(@RequestBody Paciente paciente) {
         return ResponseEntity.status(201).body(pacienteService.save(paciente));
@@ -55,5 +64,4 @@ public class PacienteController {
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(pacienteService.findAll());
     }
-
 }

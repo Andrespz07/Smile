@@ -28,7 +28,7 @@ public class PacienteServiceImpl implements PacienteService {
            return pacienteRepository.findById(id);
        }
 
-       @Transactional(readOnly = true)
+       @Transactional
        @Override
        public Optional<Paciente> findByDni(String dni){
               return pacienteRepository.findByDni(dni);
