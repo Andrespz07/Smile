@@ -1,12 +1,11 @@
 package com.Smile.demo.entitys;
-
 import java.util.List;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name="ciudades")
 public class Ciudad {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
