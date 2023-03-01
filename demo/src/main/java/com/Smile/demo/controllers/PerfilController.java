@@ -14,54 +14,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.Smile.demo.entitys.Ciudad;
-// import com.Smile.demo.services.CiudadService;
-import com.Smile.demo.services.CiudadService;
+import com.Smile.demo.entitys.Perfil;
+import com.Smile.demo.services.PerfilService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("api/ciudad")
-public class CiudadController {
+@RequestMapping("api/perfil")
+public class PerfilController {
     @Autowired
-    private CiudadService ciudadService;
+    private PerfilService perfilService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
-        Optional<Ciudad> oCiudad = ciudadService.findById(id);
-        if (oCiudad.isEmpty()) {
+        Optional<Perfil> oPerfil = perfilService.findById(id);
+        if (oPerfil.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(oCiudad.get());
+        return ResponseEntity.ok(oPerfil.get());
     }
 
     @PostMapping(value = "", consumes = "application/json")
-    public ResponseEntity<?> create(@RequestBody Ciudad ciudad) {
-        return ResponseEntity.status(201).body(ciudadService.save(ciudad));
+    public ResponseEntity<?> create(@RequestBody Perfil perfil) {
+        return ResponseEntity.status(201).body(perfilService.save(perfil));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Ciudad ciudadDetails, @PathVariable Long id) {
-        Optional<Ciudad> ciudad = ciudadService.findById(id);
-        if (!ciudad.isPresent()) {
+    public ResponseEntity<?> update(@RequestBody Perfil perfilDetails, @PathVariable Long id) {
+        Optional<Perfil> perfil = perfilService.findById(id);
+        if (!perfil.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        ciudad.get().setCiudad(ciudadDetails.getCiudad());
+        perfil.get().setCiudad(perfilDetails.getCiudad());
+        perfil.get().setTelefono(perfilDetails.getTelefono());
+        perfil.get().setDireccion(perfilDetails.getDireccion());
+        perfil.get().setEdad(perfilDetails.getEdad());
 
-        return ResponseEntity.status(201).body(ciudadService.save(ciudad.get()));
+        return ResponseEntity.status(201).body(perfilService.save(perfil.get()));
     }
 
     @DeleteMapping
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        if (!ciudadService.findById(id).isPresent()) {
+        if (!perfilService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        ciudadService.deleteById(id);
+        perfilService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
     public ResponseEntity<?> getAll() {
-        return ResponseEntity.ok(ciudadService.findAll());
+        return ResponseEntity.ok(perfilService.findAll());
     }
 
 }
