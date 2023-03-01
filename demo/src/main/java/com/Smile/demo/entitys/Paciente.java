@@ -1,6 +1,5 @@
 package com.Smile.demo.entitys;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;

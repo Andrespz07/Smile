@@ -15,7 +15,6 @@ import com.Smile.demo.services.PacienteService;
 public class PacienteController {
     @Autowired
     private PacienteService pacienteService;
-    
 
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
