@@ -29,13 +29,19 @@ public class Ciudad {
         this.ciudad = ciudad;
     }
 
+   
+
     public Ciudad() {
     }
- 
+
     public List<Perfil> getPerfiles() {
         return perfiles;
     }
     
+    public Ciudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
     public void setPerfiles(List<Perfil> perfiles) {
         this.perfiles = perfiles;
     }
