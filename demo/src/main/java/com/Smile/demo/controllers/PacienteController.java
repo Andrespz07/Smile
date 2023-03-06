@@ -5,16 +5,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.Smile.demo.entitys.Paciente;
-import com.Smile.demo.services.PacienteService;
+import com.Smile.demo.services.PacienteServiceImpl;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("api/paciente")
+@RequestMapping("api/pacientes")
 public class PacienteController {
     @Autowired
-    private PacienteService pacienteService;
+    private PacienteServiceImpl pacienteService;
 
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {

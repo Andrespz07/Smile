@@ -39,5 +39,5 @@ public class Tratamiento {
     }
 
     @ManyToMany(mappedBy = "tratamientos")
-    private Set<Paciente> pacientes;
+    Set<Paciente> pacientes;
 }

@@ -2,44 +2,44 @@ package com.Smile.demo.services;
 
 import java.util.*;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.Smile.demo.entitys.Ciudad;
 import com.Smile.demo.repository.CiudadRepository;
 
 @Service
-public class CiudadServiceImpl implements CiudadService {
+public class CiudadServiceImpl implements BaseService<Ciudad> {
 
-    // IMPORTANTE
-    @Autowired
-    private CiudadRepository ciudadRepository;
+    private CiudadRepository repository;
+
+    public CiudadServiceImpl(CiudadRepository repository) {
+        this.repository = repository;
+    }
 
     // GET ALL
     @Transactional(readOnly = true)
     @Override
     public List<Ciudad> findAll() {
-        return ciudadRepository.findAll();
+        return repository.findAll();
     }
 
     // GET BY ID
     @Transactional(readOnly = true)
     @Override
     public Optional<Ciudad> findById(Long id) {
-        return ciudadRepository.findById(id);
+        return repository.findById(id);
     }
 
     // SAVE
     @Transactional
     @Override
     public Ciudad save(Ciudad ciudad) {
-        return ciudadRepository.save(ciudad);
+        return repository.save(ciudad);
     }
 
     // DELETE BY ID
     @Transactional
     @Override
     public void deleteById(Long id) {
-        ciudadRepository.deleteById(id);
+        repository.deleteById(id);
     }
-
 }
