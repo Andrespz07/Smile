@@ -26,18 +26,30 @@ public class Paciente {
         return nombre;
     }
 
+    public Paciente() {
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public Paciente() {
+    
+    public Paciente(String dni, String nombre) {
+        this.dni = dni;
+        this.nombre = nombre;
     }
-   
+
+    public Set<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
+
+    public void setTratamientos(Set<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-    name = "pacientes_tratamientos", 
-    joinColumns = @JoinColumn(name = "paciente_id"), 
+    @JoinTable(name = "pacientes_tratamientos", 
+    joinColumns = @JoinColumn(name = "paciente_id"),
     inverseJoinColumns = @JoinColumn(name = "tratamiento_id"))
     Set<Tratamiento> tratamientos;
-
 }
