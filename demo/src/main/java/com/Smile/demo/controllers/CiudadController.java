@@ -40,7 +40,8 @@ public class CiudadController {
         return ResponseEntity.status(201).body(ciudadService.save(ciudad.get()));
     }
 
-    @DeleteMapping
+    
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         if (!ciudadService.findById(id).isPresent()) {
             return ResponseEntity.notFound().build();
