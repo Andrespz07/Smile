@@ -19,12 +19,12 @@ public class Perfil {
     @Column(length = 50, nullable = false)
     private Integer telefono;
     
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "paciente_id", referencedColumnName = "dni")
     private Paciente paciente;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "ciudad_id", nullable = false)
+    @JoinColumn(name = "ciudad_id", nullable = true)
     private Ciudad ciudad;
 
     public Long getId() {
